@@ -10,6 +10,7 @@ import Profile from './page/Profile';
 import ChangePassword from './page/ChangePassword';
 import { ToastContainer,Bounce,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Becameparson from './page/Becameparson';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
     <Route path='/checkout' element={<Checkout/>}/>
     <Route path='/profile'element={<Profile/>}/>
     <Route path='/changepassword' element={<ChangePassword/>}/>
+    <Route path='/Becameparson' element={<Becameparson/>}/>
     </Routes>
    </Router>
     </>

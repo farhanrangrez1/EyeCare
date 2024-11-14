@@ -478,7 +478,7 @@ const Navbar = () => {
           </h6> */}
           <li onClick={handleContect}>Contact</li>
           <li onClick={handleFlashSale}>Flash Sale</li>
-          <li>Became parson</li>
+         <Link to={"/Becameparson"}> <li>Became parson</li></Link>
         </div>
 
         <div
