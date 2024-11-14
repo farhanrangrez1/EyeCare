@@ -47,12 +47,6 @@ const Footer2 = () => {
             </div>
           </div>
         </div>
-        <div className="footer-bottom">
-          <p>&copy; 2024 Your Company. All rights reserved.</p>
-          <p>
-            Designed by <a href="https://yourdesign.com">YourDesign</a>
-          </p>
-        </div>
       </div>
     </footer>
   );
