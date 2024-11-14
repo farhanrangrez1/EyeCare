@@ -24,7 +24,7 @@ function Footer() {
   };
 
   return (
-    <div
+    <div style={{zIndex:"-1"}}
       id="carouselExampleIndicators"
       className="carousel slide"
       data-bs-ride="carousel"

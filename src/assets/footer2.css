@@ -1,0 +1,138 @@
+/* Basic Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    margin-top: 10px;
+  }
+  
+  .footer-container {
+    max-width: 1200px; /* Set a max-width for larger screens */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add some padding on the sides */
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+    justify-content: space-between; /* Space between sections */
+  }
+  
+  .footer-logo {
+    flex: 1 1 200px; /* Flex property for logo section */
+    margin: -14px;
+  }
+  
+  .footer-logo h2 {
+    font-size: 2rem; /* Adjust size for the logo */
+    margin-bottom: 20px; /* Spacing below the logo */
+    color: white;
+  }
+  
+  .footer-links {
+    display: flex; /* Use flexbox for links */
+    flex-wrap: wrap; /* Allow wrapping of link sections */
+    justify-content: space-between; /* Space between link sections */
+    flex: 3; /* Take more space compared to logo */
+    margin: 10px; /* Space around links */
+  }
+  
+  .footer-1 {
+    flex: 1 1 200px; /* Each link section takes equal space */
+    margin: 10px; /* Space between sections */
+  }
+  
+  .footer-1 a {
+    color: #fff; /* Link color */
+    text-decoration: none; /* No underline */
+    font-size: 18px; /* Link font size */
+    margin-bottom: 10px; /* Space below links */
+    display: block; /* Make links block-level for spacing */
+    font-weight: 700;
+  }
+  
+  .footer-1 span {
+    display: block; /* Each span on a new line */
+    font-size: 10px; /* Smaller font size for span elements */
+    margin-top: 5px; /* Space above spans */
+    color: white;
+    font-weight: 700;
+  }
+  
+  /* Subscribe Section */
+  .footer-2 {
+    margin-top: 10px; /* Space above subscribe instructions */
+    font-size: 14px; /* Font size for instructions */
+  }
+  
+  .footer2-3 {
+    display: inline-block; /* Position the send icon inline */
+    margin-left: 5px; /* Space between input and icon */
+    cursor: pointer; /* Cursor style for the icon */
+  }
+  
+  .footer-4 {
+    display: flex; /* Flexbox for input and icon */
+    align-items: center; /* Center vertically */
+  }
+  
+  .footer-4 input {
+    padding: 10px; /* Padding for input */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 10px; /* Space above input */
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    text-align: center; /* Centered text */
+    padding: 20px 0; /* Padding above and below */
+    border-top: 1px solid #444; /* Top border */
+  }
+  
+  .footer-bottom p {
+    margin: 5px 0; /* Space between paragraphs */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column; /* Stack sections on small screens */
+      align-items: center; /* Center align */
+    }
+  
+    .footer-links {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+  
+    .footer-1 {
+      text-align: center; /* Center text */
+      margin: -28px 0;
+    }
+  
+    .footer-4 input {
+      width: 80%; /* Full width for input on small screens */
+      margin: 10px 0; /* Margin above and below */
+    }
+  
+    .footer-bottom {
+      font-size: 12px; /* Smaller text size for bottom */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-logo h2 {
+      font-size: 1.5rem; /* Smaller logo size */
+    }
+  
+    .footer-1 a {
+      font-size: 14px; /* Smaller link size */
+    }
+  
+    .footer-2 {
+      font-size: 12px; /* Smaller instruction text */
+    }
+  }
+  
