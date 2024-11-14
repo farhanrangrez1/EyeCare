@@ -1,0 +1,283 @@
+
+
+.profile-page {
+    display: flex;
+  }
+  .profile{
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 30px 30px 36px;
+    background-color: #F3F4F6;
+  }
+
+  .sidebar-profile {
+    width: 300px;
+    height: 700px;
+    background-color: #F3F4F6;
+    /* padding: 0px; */
+    /* border-right: 1px solid #ddd; */
+    /* padding: 90px; */
+  }
+  
+  .sidebar-links, .wallet-points {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar-links h6 {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  /* Sidebar.css */
+
+.sidebar-container {
+    width: 200px;
+    background-color: #f8f9fa;
+    /* border-right: 1px solid #ddd; */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  /* Wallet Section */
+  .wallet-section {
+    text-align: center;
+    /* margin-bottom: 20px; */
+    background-color:white;
+    /* /* border-bottom: 1px solid #d91111; */
+    padding: 50px; 
+    width: 100%;
+    height: 200px;
+   padding-top: 30px;
+   border: 1px solid rgb(226, 225, 225);
+  }
+  
+  .wallet-section h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .wallet-points {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .wallet-points div {
+    text-align: center;
+  }
+  
+  .wallet-points span {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Sidebar Links Section */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .sidebar-links {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding:20px 0px 0px 30px;
+  }
+  
+  .sidebar-links li {
+    padding: 10px 0;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .sidebar-links h6:hover {
+    color: #007bff;
+  }
+  .sidebar-links .nav-link {
+    color: #333; 
+    text-decoration: none;
+  }
+  
+  .sidebar-links .nav-link.active {
+    color: #007bff; 
+  }
+  .sidebar-links h6 {
+    cursor: pointer;
+  }
+  
+  .logout-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    color: #dc3545;
+    /* border: 1px solid #ddd; */
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  
+  .logout-button:hover {
+    background-color: #f8d7da;
+  }
+     /* //////////////// */
+
+
+
+
+
+     
+
+
+  .logout-button {
+    background-color: #f8f9fa;
+    color: red;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .profile-form {
+    padding: 20px;
+    margin:0px 40px 0px 40px;
+    flex-grow: 1;
+    background-color: white;
+  }
+  
+  .upload-box {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .save-button, .update-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Change Password */
+  .change-password-container {
+    /* max-width: 1050px; */
+    width: 90%;
+    margin:0px 50px 0px 50px;
+    /* margin: 0 auto; */
+    padding: 20px;
+    background-color:white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 500px;
+  }
+  
+  h2 {
+    text-align: left;
+    color:black;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 100px;
+    color:gray;
+  }
+  
+  .input-group {
+    position: relative;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .submit-button {
+    background-color: #1c88B4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+   margin-left: 89%;
+   margin-top: 20px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  

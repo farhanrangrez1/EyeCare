@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+nav {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Navbar Css */
+/* Base styles for all screen sizes */
+.nav {
+    width: 100vw;
+    height: 75px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 5px 5px rgba(128, 128, 128, 0.185);
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    padding: 0 20px;
+}
+
+.nav-img {
+    height: 34px;
+    /* margin-left: 20px; */
+    cursor: pointer;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-cart {
+    /* color: #1C88B8; */
+    /* margin-left: 20px; */
+    /* font-size: 25px; */
+    /* cursor: pointer; */
+}
+
+.nav-btn {
+    width: 50px !important;
+    height: 20px;
+    background-color: #1C88B8;
+    border-radius: 7px;
+    border: none;
+    /* margin-left: 20px; */
+    color:white;
+    cursor: pointer;
+}
+.nav {
+    justify-content: space-between;
+}
+li {
+    list-style: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+.navMenuContainerList {
+    display: flex;
+    gap: 40px;
+    color: black;
+    margin-left: 50px;
+}
+.notifaction {
+    width: 20px;
+    height: 20px;
+    background-color: #1C88B8;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 73px;
+    bottom: 35px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #fff;
+    font-size: 14px;
+    align-items: center;
+} 
+  .nav {
+    justify-content: space-between;
+    padding: 0 80px 0px 50px ;
+}   
+
+.drop-1 {
+    width: 300px;
+    height: 400px;
+    background-color: rgba(165, 42, 42, 0.276);
+}
+
+
+
+/* HOVER COPONENT SECTION START FROM HERE */
+.hoverNavList a {
+    display: block;
+    padding: 0px;
+    text-decoration: none;
+    color: gray;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdownMenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    padding: 10px 0;
+  }
+  
+  .dropdownMenu a {
+    padding: 8px 16px;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdownMenu {
+    display: block;
+  }
+  
+  /* .dropdownMenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    padding: 10px 0;
+    margin-left: 220px;
+    border-radius: 20px;
+  }
+  
+  .dropdownMenu a {
+    padding: 8px 16px;
+    display: block;
+  }
+    .dropdown:hover.dropdownMenu {
+    display: block;
+  } */
+.hoverComponent{
+    display: none;  
+    position: absolute;
+    /* margin-top: 38px; */
+    margin-top: auto;
+    transition: .3s ease;
+    margin-left: 45px;  
+}
+.hoverContent a:hover{
+    color: #000000;
+}
+.hoverContent a {
+    text-decoration: none;
+    margin: 4px 0;
+    color: #000000;
+    font-size: 15px;
+    transition: .3s ease;
+}
+.hoverContent{
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: flex;
+    padding: 30px 20px;
+    border-radius: 20px;
+    background-color:white;
+    display: flex;
+    margin-top: 40px;
+    /* min-width: 600px;    */
+    min-width: 300px;   
+    justify-content: space-around;
+}   
+.hoverNavList{  
+    display: flex;
+    flex-direction: column; 
+}
+
+.NavMenuList li{
+    cursor: pointer;
+}
+.hoverList:hover .hoverComponent{
+    display: flex;
+
+
+}
+/* HOVER COPONENT SECTION END FROM HERE */
+/* Mobile Styles (up to 600px wide) */
+@media screen and (max-width: 600px) {
+    .nav {
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    .nav-img {
+        height: 34px;
+        /* margin-left: 10px; */
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    li {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .nav-cart {
+        /* margin-left: 10px; */
+        font-size: 30px !important;
+    }
+
+    .nav-btn {
+        width: 55px;
+        height: 35px;
+        margin-left: 10px;
+    }
+
+    .nav-span {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    .notifaction {
+        width: 20px;
+        height: 25px;
+    }
+}
+
+/* Tablet Styles (600px to 900px wide) */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    .nav {
+        height: 70px;
+    }
+
+    .nav-img {
+        height: 34px;
+    }
+
+    li {
+        margin-left: 20px;
+        font-size: 16px;
+    }
+
+    .nav-btn {
+        width: 60px;
+        height: 38px;
+    }
+
+    .nav-span {
+        width: 32px;
+        height: 32px;
+        font-size: 22px;
+    }
+}
+
+/* Large Screen Styles (900px and up) */
+@media screen and (min-width: 900px) {
+    .nav {
+        height: 75px;
+    }
+
+    .nav-img {
+        height: 34px;
+    }
+
+    .nav-cart {
+        /* margin-left: 45px; */
+        font-size: 25px;
+    }
+
+    .nav-btn {
+        width: 65px;
+        height: 40px;
+    }
+
+    .nav-span {
+        width: 35px;
+        height: 35px;
+        font-size: 25px;
+    }
+}
+.nav-cart {
+    /* margin-left: 30px; */
+    font-size: 30px !important;
+}   
+
+/* Navbar Css And */
+
+
+/* Side Cart  */
+.modal2-1{
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: rgba(128, 128, 128, 0.11);
+    z-index: 10000;
+}
+.modal2-2{
+
+    left: 70%;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    background-color: white;
+    z-index: 15000;
+    position: fixed;
+}
+.modal2-3{
+    width: 100vw;
+    height: 55px;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    /* align-items: center; */
+    box-shadow: 0px 1px 5px rgb(231, 224, 224);
+    /* justify-content: space-evenly; */
+    /* font-size: 22px;
+    color: #1C88B8; */
+    
+}
+.modal2-4{
+    color: #1C88B8;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 15px;
+    /* margin-right: 100px; */
+}
+.modal2-cart{
+    color: #1C88B8;
+    font-size: 35px;
+    font-weight: 800;   
+}
+.modal2-5{
+    margin-left: 15px;
+}
+.modal2-6 {
+    /* color: #1C88B8; */
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #1C88B8;
+    color: white;
+    margin-left: 250px;
+    text-align: center;
+    
+}
+.modal2-7{
+    font-size: 15px;
+    cursor: pointer;
+}
+.modal2-9{
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+}
+
+    .modal2-8 button {  
+        border: none;
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.modal2-8 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 35px;
+    height: 95px;
+    background-color: rgba(128, 128, 128, 0.148);
+    /* text-align: center; */
+    border-radius: 30px;
+    justify-content: center;
+    gap: 5px;
+}
+.modal2-8 button{
+    width: 20px;
+    height: 20px;
+    border: none;
+    /* background-color: rgba(128, 128, 128, 0.148); */
+}
+    
+.modal2-8 span{
+    width: 20px;
+    height: 20px;
+    /* background-color: rgba(128, 128, 128, 0.148); */
+}
+.modal2-10{
+    height: 50px;
+    width: 50px;
+    background-color: rgba(128, 128, 128, 0.089);
+    text-align: center;
+}
+.modal2-10 img{
+    width: 50px;
+    height: 50px;
+}
+.modal2-11{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+.modal2-11 h6{
+    font-weight: 700;
+}
+.modal2-11 span{
+    font-size: 14px;
+    color: #1C88B8;
+    font-weight: 800;
+}
+.modal2-11 p{
+    font-size: 15px;
+    color: gray;
+}
+.modal2-12 p{
+color: #1C88B8;
+font-weight: 700;
+margin-right: 5px;
+font-size: 25px;
+cursor: pointer;
+}
+.modal2-12 p:hover{
+    color: red;
+}
+/* Side Cart And  */

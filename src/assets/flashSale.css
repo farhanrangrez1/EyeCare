@@ -1,0 +1,162 @@
+
+
+
+
+
+
+/* FlashSale page*/
+
+.flash-1 {
+    width: 100vw;
+    height: 300px;
+    background-color: rgba(125, 115, 115, 0.215);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .flash-1 h2 {
+    font-weight: 800;
+    font-size: 2rem; /* Adjust for different screens */
+    
+  }
+  
+  .flash-1 span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.2rem; /* Adjust for responsiveness */
+    text-align: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .flash-2 {
+    width: 100%; /* Make it 100% width on smaller screens */
+    max-width: 400px;
+    background-color: rgba(128, 128, 128, 0);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .flash-4 {
+    display: flex;
+    gap: 5px;
+    margin-top: 100px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  }
+  
+  .flash-2 img {
+    width: 400px; /* Adjust to full width */
+    height:300px; /* Let the height scale with the width */
+  }
+  
+  .flash-2 h6 {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+  
+  .flash-3 {
+    display: flex;
+    justify-content: start;
+  }
+  
+  .flash-3 p {
+    margin-top: 8px;
+    margin-left: 20px;
+    font-size: 0.8rem;
+  }
+  
+  
+  
+  /* CUSTOM CSS START FROM HERE */
+  .flashCard{
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 15px;
+    width: 350px;
+  }
+  .flashCardImg img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .flashCardImg{
+    width: 100%;
+    overflow: hidden;
+    height: 150px;
+  }
+  .flashCardHead{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+  }
+  .flashCardTitle{
+    font-size: 20px;
+    font-weight: 600;
+  
+  }
+  .flashSubTitle span{
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .flashSubTitle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  /* CUSTOM CSS END FROM HERE */
+  
+  
+  
+  /* Media Queries for responsiveness */
+  @media screen and (max-width: 768px) {
+    .flash-1 {
+        height: 250px; /* Adjust height for smaller screens */
+    }
+    .flash-1 h2 {
+        font-size: 1.5rem;
+    }
+    .flash-1 span {
+        font-size: 1rem;
+    }
+    .flash-2 {
+        width: 100%; /* Full width on tablets */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .flash-1 {
+        height: 200px; /* Further reduce the height on small screens */
+    }
+    .flash-1 h2 {
+        font-size: 1.2rem;
+    }
+    .flash-1 span {
+        font-size: 0.9rem;
+    }
+    .flash-2 {
+        width: 100%; /* Full width on mobile */
+        max-width: 100%;
+    }
+    .flash-4 {
+        margin-top: 50px; /* Adjust spacing */
+        gap: 3px;
+    }
+    .flash-2 img {
+        width: 100%; /* Make images responsive */
+    }
+  }
+  /* FlashSale page css And */
+  
+  
+  
+  
