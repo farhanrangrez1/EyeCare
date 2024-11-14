@@ -1,114 +1,121 @@
-import { useEffect, useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
-import { AddCart } from "../features/AddCart/cartSlice";
-import { fetchProduct } from "../features/Product/productSlice";
-import SideCart from "../component/SideCart";
-import { fetchCart } from '../features/AddCart/cartSlice';
+import React, { useState } from "react";
+import './ClassicProduct.css';
+import product1 from "../Image/product/2036MG2977-2_e39618b1-7aac-478d-8096-00b67f0ca421.webp"
+import product2 from "../Image/product/2057MG3573-2.webp"
+import product3 from "../Image/product/2186MG3620-2 (1).webp"
+import product4 from "../Image/product/2186MG3620-2.webp"
+import product5 from "../Image/product/2305MG3637-2.webp"
+import product6 from "../Image/product/2_2d7a94d1-ef5b-4e51-81f2-2e829f15f5e4.webp"
+import product7 from "../Image/product/2_2d7a94d1-ef5b-4e51-81f2-2e829f15f5e4.webp"
+import product8 from "../Image/product/3405MG3786-3_b01b7950-a630-4e4c-9231-c8de01d4f5fe (1).webp"
+import product9 from "../Image/product/3405MG3786-3_b01b7950-a630-4e4c-9231-c8de01d4f5fe (1).webp"
+import product10 from "../Image/product/3405MG3786-3_b01b7950-a630-4e4c-9231-c8de01d4f5fe.webp"
+import product11 from "../Image/product/3405MG3786-3_b01b7950-a630-4e4c-9231-c8de01d4f5fe.webp"
+import product12 from "../Image/product/4_4906a5a1-fbaf-4090-948e-1905547e3fda.webp"
+import product13 from "../Image/product/58240MG4209-2.webp"
+import product14 from "../Image/product/2305MG3637-2.webp"
+import product15 from "../Image/product/952MG3669-3_c41b1dd0-1377-4621-be5b-1c4c51ba97a9.webp"
+import product16 from "../Image/product/B6101MG3176-3.webp"
+import product17 from "../Image/product/DSC_4366 (1).webp"
+import product18 from "../Image/product/DSC_4366 (1).webp"
+import product19 from "../Image/product/DSC_4366.webp"
+const allProducts = [
+  {
+    image:
+      product1,
+    title: "The OG | Round Black Silver Su...",
+    originalPrice: 2.0,
+    discountedPrice: 1.6,
+    discount: 20,
+    category: "classic",
+  },
+  {
+    image:
+    product2,
+    title: "Gradient Grey Wayfarer Sungla...",
+    originalPrice: 1.0,
+    discountedPrice: 0.6,
+    discount: 40,
+    category: "classic",
+  },
+  {
+    image:
+    product3,
+    title: "Phantom | Black Wayfarer Sung...",
+    originalPrice: 3.0,
+    discountedPrice: 3.0,
+    discount: 0,
+    category: "premium",
+  },
+  {
+    image:
+    product4,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    discount: 40,
+    category: "screen",
+  },
+  {
+    image:
+    product5,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    category: "screen",
+  },
+  {
+    image:
+    product6,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    discount: 40,
+    category: "screen",
+  },
+  {
+    image:
+    product14,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    category: "screen",
+  },
+  {
+    image:
+    product8,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    discount: 40,
+    category: "screen",
+  },
+];
 
-function Allproduct() {
-  const dispatch = useDispatch();
-  const [showModal, setShowModal] = useState(false);
-
-  const { Allproduct } = useSelector((state) => state.product);
-
-  useEffect(() => {
-    dispatch(fetchProduct());
-  }, [dispatch]);
-
-  const addCard = (data) => {
-    console.log("Adding to cart:", data);
-    dispatch(AddCart(data));
-  };
-
-  const handleCartModalClose = () => {
-    setShowModal(false);
-  };
-  const handleCartModal = () => {
-    setShowModal(true);
-  };
-
+function ClassicProduct() {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };
 
-  // Filter products based on selected category
   const filteredProducts = selectedCategory
-    ? Allproduct.products.filter((product) =>
-        product.category_ids.some(
-          (category) => category.id.toString() === selectedCategory
-        )
-      )
-    : Allproduct.products;
+    ? allProducts.filter((product) => product.category === selectedCategory)
+    : allProducts;
 
+    
   return (
-    <>
-      {showModal && <SideCart handleCartModalClose={handleCartModalClose} />}
-
-      <div className="classic-product">
-        <div className="sid_nav">
-          <Sidebar
-            selectedCategory={selectedCategory}
-            onCategoryChange={handleCategoryChange}
-          />
-        </div>
-
-        <div className="product-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "20px", padding: "20px" }}>
-          {filteredProducts && filteredProducts.length > 0 ? (
-            filteredProducts.map((data) => (
-              <div key={data.id} className="product-card">
-                {data.discount > 0 && (
-                  <div className="discount-badge">{data.discount}% OFF</div>
-                )}
-
-                <img
-                  style={{ height: "200px" }}
-                  src={`https://eye-care.developmentalphawizz.com/storage/app/public/product/thumbnail/${data.thumbnail}`}
-                  alt={data.name}
-                  className="product-image"
-                />
-
-                <div>
-                  <h6 className="product-title">{data.name}</h6>
-                  <div>
-                    <div
-                      className="product-pricing"
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      {data.originalPrice !== undefined && (
-                        <span className="original-price">
-                          ₹{(data.originalPrice || 0).toFixed(2)}
-                        </span>
-                      )}
-                      <span className="discounted-price">
-                        ₹{(data.discountedPrice || 0).toFixed(2)}
-                      </span>
-                    </div>
-
-                    <div className="product-actions">
-                      <button
-                        className="cart-btn"
-                        onClick={() => addCard(data)}
-                      >
-                        <FaShoppingCart />
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>No products available.</p>
-          )}
-        </div>
-
+    <div className="classic-product">
+    <div className="sid_nav">
+    <Sidebar
+        selectedCategory={selectedCategory}
+        onCategoryChange={handleCategoryChange}
+      />
+    </div>
+      <div className="product-grid">
+        {filteredProducts.map((product, index) => (
+          <ProductCard key={index} {...product} />
+        ))}
         <button
           style={{
             marginLeft: "480px",
@@ -124,1063 +131,10 @@ function Allproduct() {
           Load More
         </button>
       </div>
-    </>
-  );
-}
-
-const Sidebar = ({ selectedCategory, onCategoryChange }) => (
-  <div className="sidebar" style={{ padding: "20px" }}>
-    {/* Classic Eyeglasses Category */}
-    <select
-      className="category-select"
-      value={selectedCategory}
-      onChange={onCategoryChange}
-    >
-      <option value="">Select Category</option>
-      <option value="10">Classic Eyeglasses</option>
-      <option value="11">Premium Eyeglasses</option>
-      <option value="12">Screen Eyeglasses</option>
-    </select>
-  </div>
-);
-
-export default Allproduct;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ///////////////
-import { useEffect, useState, useCallback } from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
-import { AddCart } from "../features/AddCart/cartSlice";
-import { fetchProduct } from "../features/Product/productSlice";
-import SideCart from "../component/SideCart";
-
-function Allproduct() {
-  const dispatch = useDispatch();
-  const [showModal, setShowModal] = useState(false);
-  const { Allproduct } = useSelector((state) => state.product);
-
-  const [selectedCategory, setSelectedCategory] = useState(""); // Tracks selected category
-  const [page, setPage] = useState(1); // Tracks current page for "Load More"
-  const [loading, setLoading] = useState(false);
-  const [hasMoreProducts, setHasMoreProducts] = useState(true); // Tracks if more products are available
-
-  // Fetch products whenever the category or page changes
-  useEffect(() => {
-    setLoading(true);
-    dispatch(fetchProduct(page, selectedCategory))
-      .then((data) => {
-        setLoading(false);
-        if (data && data.products.length > 0) {
-          setHasMoreProducts(data.products.length === 10); // If 10 products are returned, there may be more
-        }
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-  }, [dispatch, page, selectedCategory]); // Depend on both `page` and `selectedCategory`
-
-  const addCard = (data) => {
-    dispatch(AddCart(data));
-  };
-
-  const handleCartModalClose = () => setShowModal(false);
-  const handleCartModal = () => setShowModal(true);
-
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-    setPage(1); // Reset to first page when category is changed
-  };
-
-  // Load more products by increasing page number
-  const loadMoreProducts = useCallback(() => {
-    if (!loading && hasMoreProducts) {
-      setPage((prevPage) => prevPage + 1);
-    }
-  }, [loading, hasMoreProducts]);
-
-  // Filter products based on selected category
-  const filteredProducts = selectedCategory
-    ? Allproduct?.products?.filter((product) =>
-        product.category_ids.some(
-          (category) => category.id.toString() === selectedCategory
-        )
-      )
-    : Allproduct?.products;
-
-  const displayedProducts = filteredProducts?.slice(0, page * 3) || [];
-
-  return (
-    <>
-      {showModal && <SideCart handleCartModalClose={handleCartModalClose} />}
-
-      <div className="classic-product">
-        <div className="sid_nav">
-          <Sidebar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
-        </div>
-
-        <div className="product-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px", padding: "20px" }}>
-          {displayedProducts.length > 0 ? (
-            displayedProducts.map((data) => (
-              <div key={data.id} className="product-card">
-                {data.discount > 0 && <div className="discount-badge">{data.discount}% OFF</div>}
-                <img
-                  style={{ height: "200px" }}
-                  src={`https://eye-care.developmentalphawizz.com/storage/app/public/product/thumbnail/${data.thumbnail}`}
-                  alt={data.name}
-                  className="product-image"
-                />
-                <div>
-                  <h6 className="product-title">{data.name}</h6>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingBottom: "20px" }}>
-                    <div className="product-pricing" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                      {data.originalPrice !== undefined && (
-                        <span className="original-price">₹{(data.originalPrice || 0).toFixed(2)}</span>
-                      )}
-                      <span className="discounted-price">₹{(data.discountedPrice || 0).toFixed(2)}</span>
-                    </div>
-
-                    <div className="product-actions">
-                      <button className="cart-btn" onClick={() => addCard(data)}>
-                        <FaShoppingCart /> Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>No products available.</p>
-          )}
-        </div>
-        </div>
-        <button
-          onClick={loadMoreProducts}
-          style={{
-            marginLeft: "680px",
-            height: "50px",
-            width: "100px",
-            borderRadius: "8px",
-            backgroundColor: "#1C88B8",
-            color: "white",
-            border: "none",
-            fontWeight: "600",
-            marginBottom: "50px",
-          }}
-          disabled={loading || !hasMoreProducts}
-        >
-          {loading ? "Loading..." : "Load More"}
-        </button>
-
-    </>
-  );
-}
-
-const Sidebar = ({ selectedCategory, onCategoryChange }) => (
-  <div className="sidebar" style={{ padding: "20px" }}>
-    <select className="category-select" value={selectedCategory} onChange={onCategoryChange}>
-      <option value="">Select Products</option>
-      <option value="10">Classic Eyeglasses</option>
-      <option value="11">Premium Eyeglasses</option>
-      <option value="12">Screen Eyeglasses</option>
-    </select>
-  </div>
-);
-
-export default Allproduct;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 
-import { useEffect, useState, useCallback } from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
-import { AddCart } from "../features/AddCart/cartSlice";
-import { fetchProduct } from "../features/Product/productSlice";
-import SideCart from "../component/SideCart";
-
-function Allproduct() {
-  const dispatch = useDispatch();
-  const [showModal, setShowModal] = useState(false);
-  const { Allproduct } = useSelector((state) => state.product);
-
-  const [selectedCategory, setSelectedCategory] = useState(""); 
-  const [page, setPage] = useState(1); 
-  const [loading, setLoading] = useState(false);
-  const [hasMoreProducts, setHasMoreProducts] = useState(true);
-  const [pageSize, setPageSize] = useState(5); // Start with 5 products
-
-  useEffect(() => {
-    setLoading(true);
-    dispatch(fetchProduct(page, selectedCategory))
-      .then((data) => {
-        setLoading(false);
-        if (data && data.products.length > 0) {
-          setHasMoreProducts(data.products.length === 10); 
-        }
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-  }, [dispatch, page, selectedCategory]);
-
-  const addCard = (data) => {
-    dispatch(AddCart(data));
-  };
-  
-  const handleCartModalClose = () => setShowModal(false);
-  const handleCartModal = () => setShowModal(true);
-
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-    setPage(1); // Reset to first page on category change
-  };
-
-  const loadMoreProducts = useCallback(() => {
-    if (!loading && hasMoreProducts) {
-      setPage((prevPage) => prevPage + 1);
-      if (page === 1) {
-        setPageSize(10); // Change to 10 after first click
-      }
-    }
-  }, [loading, hasMoreProducts, page]);
-
-  const filteredProducts = selectedCategory
-    ? Allproduct?.products?.filter((product) =>
-        product.category_ids.some(
-          (category) => category.id.toString() === selectedCategory
-        )
-      )
-    : Allproduct?.products;
-
-  const displayedProducts = filteredProducts?.slice(0, page * pageSize) || [];
-
-  // Pagination logic
-  const totalPages = Math.ceil(filteredProducts?.length / pageSize);
-  const handleNext = () => {
-    setPage((prevPage) => Math.min(prevPage + 1, totalPages));
-  };
-  const handlePrev = () => {
-    setPage((prevPage) => Math.max(prevPage - 1, 1));
-  };
-
-  return (
-    <>
-      {showModal && <SideCart handleCartModalClose={handleCartModalClose} />}
-
-      <div className="classic-product">
-        <div className="sid_nav">
-          <Sidebar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
-        </div>
-
-        <div className="product-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px", padding: "20px" }}>
-          {displayedProducts.length > 0 ? (
-            displayedProducts.map((data) => (
-              <div key={data.id} className="product-card">
-                {data.discount > 0 && <div className="discount-badge">{data.discount}% OFF</div>}
-                <img
-                  style={{ height: "200px" }}
-                  src={`https://eye-care.developmentalphawizz.com/storage/app/public/product/thumbnail/${data.thumbnail}`}
-                  alt={data.name}
-                  className="product-image"
-                />
-                <div>
-                  <h6 className="product-title">{data.name}</h6>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingBottom: "20px" }}>
-                    <div className="product-pricing" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                      {data.originalPrice !== undefined && (
-                        <span className="original-price">₹{(data.originalPrice || 0).toFixed(2)}</span>
-                      )}
-                      <span className="discounted-price">₹{(data.discountedPrice || 0).toFixed(2)}</span>
-                    </div>
-
-                    <div className="product-actions">
-                      <button className="cart-btn" onClick={() => addCard(data)}>
-                        <FaShoppingCart /> Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>No products available.</p>
-          )}
-        </div>
-        </div>
-        <button
-          onClick={loadMoreProducts}
-          style={{
-            marginLeft: "680px",
-            height: "50px",
-            width: "100px",
-            borderRadius: "8px",
-            backgroundColor: "#1C88B8",
-            color: "white",
-            border: "none",
-            fontWeight: "600",
-            marginBottom: "50px",
-          }}
-          disabled={loading || !hasMoreProducts}
-        >
-          {loading ? "Loading..." : "Load More"}
-        </button>
-
-        <div className="pagination">
-          {/* Previous button */}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              handlePrev();
-            }}
-            style={{ visibility: page > 1 ? 'visible' : 'hidden' }}
-          >
-            &laquo;
-          </a>
-
-          {/* Page numbers */}
-          {Array.from({ length: totalPages }, (_, i) => (
-            <a
-              href="#"
-              key={i + 1}
-              onClick={(e) => {
-                e.preventDefault();
-                setPage(i + 1);
-              }}
-              style={{ fontWeight: page === i + 1 ? 'bold' : 'normal' }}
-            >
-              {i + 1}
-            </a>
-          ))}
-
-          {/* Next button */}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNext();
-            }}
-            style={{ visibility: page < totalPages ? 'visible' : 'hidden' }}
-          >
-            &raquo;
-          </a>
-        </div>
-
-    </>
-  );
-}
-
-const Sidebar = ({ selectedCategory, onCategoryChange }) => (
-  <div className="sidebar" style={{ padding: "20px" }}>
-    <select className="category-select" value={selectedCategory} onChange={onCategoryChange}>
-      <option value="">Select Products</option>
-      <option value="10">Classic Eyeglasses</option>
-      <option value="11">Premium Eyeglasses</option>
-      <option value="12">Screen Eyeglasses</option>
-    </select>
-  </div>
-);
-
-export default Allproduct;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// navbar
-import { Nav } from "react-bootstrap";
-
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import profileDefault from "../Image/profile.png";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../features/user/authSlice";
-import Swal from "sweetalert2";
-import { FaQuestionCircle, FaSearch } from "react-icons/fa";
-
-const Navbar = () => {
-  const dispatch = useDispatch();
-  const { user, isSuccess, isError } = useSelector((state) => state.user);
-  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  // Checking if the user is logged in
-  useEffect(() => {
-    const savedLoginStatus = localStorage.getItem("loggedIn");
-    if (savedLoginStatus === "true") {
-      setLoggedIn(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (user && isSuccess) {
-      setLoggedIn(true);
-      localStorage.setItem("loggedIn", "true");
-    } else if (isError || !user) {
-      setLoggedIn(false);
-      localStorage.setItem("loggedIn", "false");
-    }
-  }, [isSuccess, isError, user]);
-
-  // Toggle profile menu
-  const toggleProfileMenu = (e) => {
-    e.stopPropagation(); // Prevents event from bubbling up and closing the menu immediately
-    setProfileMenuOpen((prev) => !prev);
-  };
-
-  // Handle click outside to close the profile menu
-  const closeProfileMenu = (e) => {
-    if (!e.target.closest("#user-menu") && !e.target.closest("#user-menu-button")) {
-      setProfileMenuOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    // Adding event listener to close the profile menu when clicked outside
-    document.addEventListener("click", closeProfileMenu);
-    return () => {
-      // Cleanup the event listener when component unmounts
-      document.removeEventListener("click", closeProfileMenu);
-    };
-  }, []);
-
-  const handleLogout = () => {
-    dispatch(logout());
-    setLoggedIn(false);
-  };
-
-  return (
-    <div className="nav">
-      {/* Other Navbar contents */}
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "200px",
-        }}
-      >
-        <Nav.Link href="#" style={{ color: "black" }}>
-          <FaQuestionCircle size={25} />
-        </Nav.Link>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "35px",
-            height: "35px",
-            borderRadius: "50%",
-            backgroundColor: "white",
-            color: "pointer",
-            border: "1px solid gray",
-          }}
-        >
-          <FaSearch size={16} />
-        </div>
-
-        {loggedIn ? (
-          <div>
-            <button
-              type="button"
-              style={{
-                position: "relative",
-                display: "flex",
-                borderRadius: "9999px",
-                backgroundColor: "#4a5568",
-                fontSize: "0.875rem",
-                outline: "none",
-                border: "none",
-                cursor: "pointer",
-              }}
-              id="user-menu-button"
-              onClick={toggleProfileMenu} // Toggle the menu on click
-            >
-              <span style={{ display: "none" }}>Open user menu</span>
-              <img
-                style={{
-                  height: "2rem",
-                  width: "2rem",
-                  borderRadius: "9999px",
-                }}
-                src={profileDefault}
-                alt="Profile"
-              />
-            </button>
-          </div>
-        ) : (
-          <button className="nav-btn" style={{ width: "45px" }}>
-            Join
-          </button>
-        )}
-
-        {/* Cart Icon */}
-        <span className="nav-cart">
-          <svg
-            style={{ fontSize: "30px" }}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12.8 8.8v-4a4 4 0 00-8 0v4m-3-2h14l1 12H.8z"></path>
-          </svg>
-        </span>
-      </div>
-
-      {/* Profile Menu */}
-      {profileMenuOpen && (
-        <div
-          id="user-menu"
-          style={{
-            right: "0",
-            zIndex: "10",
-            marginTop: "0.5rem",
-            width: "12rem",
-            borderRadius: "0.375rem",
-            backgroundColor: "#fff",
-            padding: "0.25rem 0",
-            boxShadow:
-              "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)",
-            border: "1px solid rgba(0, 0, 0, 0.05)",
-            marginRight: "80px",
-            position: "fixed",
-          }}
-          role="menu"
-          aria-orientation="vertical"
-        >
-          <Link to={"/profile"}>
-            <a
-              style={{
-                display: "block",
-                padding: "0.5rem 1rem",
-                fontSize: "0.875rem",
-                color: "#4a5568",
-                textDecoration: "none",
-              }}
-              role="menuitem"
-            >
-              Your Profile
-            </a>
-          </Link>
-          <a
-            style={{
-              display: "block",
-              padding: "0.5rem 1rem",
-              fontSize: "0.875rem",
-              color: "#4a5568",
-              textDecoration: "none",
-            }}
-            role="menuitem"
-          >
-            Saved Properties
-          </a>
-          <Link to={"/checkout"}>
-            <a
-              style={{
-                display: "block",
-                padding: "0.5rem 1rem",
-                fontSize: "0.875rem",
-                color: "#4a5568",
-                textDecoration: "none",
-              }}
-              role="menuitem"
-            >
-              Checkout
-            </a>
-          </Link>
-
-          <Link onClick={handleLogout}>
-            <a
-              style={{
-                display: "block",
-                padding: "0.5rem 1rem",
-                fontSize: "0.875rem",
-                color: "#4a5568",
-                textDecoration: "none",
-              }}
-              role="menuitem"
-            >
-              Sign Out
-            </a>
-          </Link>
-        </div>
-      )}
     </div>
   );
-};
-
-export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ////////
-// <div>
-    //   <div
-    //     className="carousel slide"
-    //     id="carouselExampleAutoplaying"
-    //     data-bs-ride="carousel"
-    //     data-bs-interval="4000" // 2000 milliseconds = 2 seconds
-    //   >
-    //     <div className="carousel-indicators">
-    //       <button
-    //         type="button"
-    //         data-bs-target="#carouselExampleAutoplaying"
-    //         data-bs-slide-to="0"
-    //         className="active"
-    //         aria-current="true"
-    //         aria-label="Slide 1"
-    //         style={{ backgroundColor: 'white', borderRadius: '50%', width: '5px', height: '5px' }}
-    //       ></button>
-    //       <button
-    //         type="button"
-    //         data-bs-target="#carouselExampleAutoplaying"
-    //         data-bs-slide-to="1"
-    //         aria-label="Slide 2"
-    //         style={{ backgroundColor: 'white', borderRadius: '50%', width: '5px', height: '5px' }}
-    //       ></button>
-    //       <button
-    //         type="button"
-    //         data-bs-target="#carouselExampleAutoplaying"
-    //         data-bs-slide-to="2"
-    //         aria-label="Slide 3"
-    //         style={{ backgroundColor: 'white', borderRadius: '50%', width: '5px', height: '5px' }}
-    //       ></button>
-    //       <button
-    //         type="button"
-    //         data-bs-target="#carouselExampleAutoplaying"
-    //         data-bs-slide-to="3"
-    //         aria-label="Slide 4"
-    //         style={{ backgroundColor: 'white', borderRadius: '50%', width: '5px', height: '5px' }}
-    //       ></button>
-    //       <button
-    //         type="button"
-    //         data-bs-target="#carouselExampleAutoplaying"
-    //         data-bs-slide-to="4"
-    //         aria-label="Slide 5"
-    //         style={{ backgroundColor: 'white', borderRadius: '50%', width: '5px', height: '5px' }}
-    //       ></button>
-    //       <button
-    //         type="button"
-    //         data-bs-target="#carouselExampleAutoplaying"
-    //         data-bs-slide-to="5"
-    //         aria-label="Slide 6"
-    //         style={{ backgroundColor: 'white', borderRadius: '50%', width: '5px', height: '5px' }}
-    //       ></button>
-    //     </div>
-
-    //     <div className="carousel-inner">
-    //       <div className="carousel-item active">
-    //         <img src={footer1} className="d-block w-100" alt="..." />
-    //       </div>
-    //       <div className="carousel-item">
-    //         <img src={footer2} className="d-block w-100" alt="..." />
-    //       </div>
-    //       <div className="carousel-item">
-    //         <img src={footer3} className="d-block w-100" alt="..." />
-    //       </div>
-    //       <div className="carousel-item">
-    //         <img src={footer4} className="d-block w-100" alt="..." />
-    //       </div>
-    //       <div className="carousel-item">
-    //         <img src={footer5} className="d-block w-100" alt="..." />
-    //       </div>
-    //       <div className="carousel-item">
-    //         <img src={footer6} className="d-block w-100" alt="..." />
-    //       </div>
-    //     </div>
-
-    //     <button
-    //       className="carousel-control-prev"
-    //       type="button"
-    //       data-bs-target="#carouselExampleAutoplaying"
-    //       data-bs-slide="prev"
-    //     >
-    //       <span className="visually-hidden">Previous</span>
-    //     </button>
-    //     <button
-    //       className="carousel-control-next"
-    //       type="button"
-    //       data-bs-target="#carouselExampleAutoplaying"
-    //       data-bs-slide="next"
-    //     >
-    //       <span className="visually-hidden">Next</span>
-    //     </button>
-    //   </div>
-    // </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // 
-    import "../assets/products.css"
-// import "../assets/navbar.css";
-import { useEffect, useState, useCallback } from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
-import { AddCart } from "../features/AddCart/cartSlice";
-import { fetchProduct } from "../features/Product/productSlice";
-import SideCart from "../component/SideCart";
-
-
-function Allproduct() {
-  const dispatch = useDispatch();
-  const { Allproduct } = useSelector((state) => state.product)
-  
-  const addCard = (data) => {
-    dispatch(AddCart(data))
-  };
-
-
-  const [showModal, setShowModal] = useState(false)
-  const handleCartModalClose = () => setShowModal(false)
-  const handleCartModal = () => setShowModal(true)
-
-
-  // Pagination page peroducts
-  const [selectedCategory, setSelectedCategory] = useState("")
-  const [page, setPage] = useState(1)
-  const [loading, setLoading] = useState(false)
-  const [hasMoreProducts, setHasMoreProducts] = useState(true)
-  const [pageSize, setPageSize] = useState(5)
-
-  useEffect(() => {
-    setLoading(true);
-    dispatch(fetchProduct(page, selectedCategory))
-      .then((data) => {
-        setLoading(false);
-        if (data && data.products.length > 0) {
-          setHasMoreProducts(data.products.length === 10)
-        }
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-  }, [dispatch, page, selectedCategory])
-  
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value)
-    setPage(1);
-  };
-  // Pagination page peroducts And
-
-
-
-  // Load More butoon product 
-  const loadMoreProducts = useCallback(() => {
-    if (!loading && hasMoreProducts) {
-      setPage((prevPage) => prevPage + 1)
-      if (page === 1) {
-        setPageSize(10)
-      }
-    }
-  }, [loading, hasMoreProducts, page]);
-
-  const filteredProducts = selectedCategory
-    ? Allproduct?.products?.filter((product) =>
-        product.category_ids.some(
-          (category) => category.id.toString() === selectedCategory
-        )
-      )
-    : Allproduct?.products;
-  const displayedProducts = filteredProducts?.slice(0, page * pageSize) || []
-  const totalPages = Math.ceil(filteredProducts?.length / pageSize)
-  const handleNext = () => {
-    setPage((prevPage) => Math.min(prevPage + 1, totalPages))
-  };
-  const handlePrev = () => {
-    setPage((prevPage) => Math.max(prevPage - 1, 1))
-  };
-  const getPageNumbers = () => {
-    const pageNumbers = []
-    const maxPageNumbers = 5;
-    let startPage = Math.max(page - Math.floor(maxPageNumbers / 2), 1)
-    let endPage = Math.min(startPage + maxPageNumbers - 1, totalPages)
-    if (endPage - startPage + 1 < maxPageNumbers) {
-      startPage = Math.max(endPage - maxPageNumbers + 1, 1)
-    }
-    for (let i = startPage; i <= endPage; i++) {
-      pageNumbers.push(i)
-    }
-    return pageNumbers
-  };
-
-  return (
-    <>
-      {showModal && <SideCart handleCartModalClose={handleCartModalClose} />}
-
-      <div
-      className="allproducts">
-        <div className="classic-product">
-          <div className="sid_nav">
-            <Sidebar
-              selectedCategory={selectedCategory}
-              onCategoryChange={handleCategoryChange}
-            />
-          </div>
-
-          <div
-            className="product-grid-product">
-            {displayedProducts.length > 0 ? (
-              displayedProducts.map((data) => (
-                <div key={data.id} className="product-card">
-                  {data.discount > 0 && (
-                    <div className="discount-badge">{data.discount}% OFF</div>
-                  )}
-                  <img
-                    style={{ height: "200px" }}
-                    src={`https://eye-care.developmentalphawizz.com/storage/app/public/product/thumbnail/${data.thumbnail}`}
-                    alt={data.name}
-                    className="product-image"
-                  />
-                  <div>
-                    <h6 className="product-title">{data.name}</h6>
-                    <div
-                    className="product-price-button">
-                      <div
-                        className="product-pricing"
-                        // style={{
-                        //   display: "flex",
-                        //   flexDirection: "column",
-                        //   justifyContent: "space-between",
-                        // }}
-                      >
-                       <div style={{display:"flex",flexDirection:"column"}}>
-                       {data.unit_price !== undefined && (
-                          <span className="original-price">
-                            ₹{(data.unit_price || 0).toFixed(2)}
-                          </span>
-                        )}
-                        <span className="discounted-price">
-                          ₹{(data.purchase_price || 0).toFixed(2)}
-                        </span>
-                       </div>
-                      </div>
-
-                      <div className="product-actions">
-                        <button
-                          className="cart-btn"
-                          onClick={() => addCard(data)}
-                        >
-                          <FaShoppingCart /> Cart
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p>No products available.</p>
-            )}
-          </div>
-        </div>
-
-        {/* <button
-          onClick={loadMoreProducts}
-          style={{
-            marginLeft: "680px",
-            height: "50px",
-            width: "100px",
-            borderRadius: "8px",
-            backgroundColor: "#1C88B8",
-            color: "white",
-            border: "none",
-            fontWeight: "600",
-            marginBottom: "50px",
-          }}
-          disabled={loading || !hasMoreProducts}
-        >
-          {loading ? "Loading..." : "Load More"}
-        </button> */} 
-        <div
-          className="pagination"
-          style={{ overflowX: "auto", whiteSpace: "nowrap" }}
-        >
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              handlePrev();
-            }}
-            style={{ visibility: page > 1 ? "visible" : "hidden" }}
-          >
-            &laquo;
-          </a>
-          {getPageNumbers().map((pageNumber) => (
-            <a
-              href="#"
-              key={pageNumber}
-              onClick={(e) => {
-                e.preventDefault();
-                setPage(pageNumber);
-              }}
-              style={{
-                fontWeight: page === pageNumber ? "bold" : "normal",
-                marginRight: "10px",
-              }}
-            >
-              {pageNumber}
-            </a>
-          ))}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNext();
-            }}
-            style={{ visibility: page < totalPages ? "visible" : "hidden" }}
-          >
-            &raquo;
-          </a>
-        </div>
-      </div>
-    </>
-  );
 }
+
 const Sidebar = ({ selectedCategory, onCategoryChange }) => (
   <div className="sidebar" style={{ padding: "20px" }}>
     <select
@@ -1188,12 +142,97 @@ const Sidebar = ({ selectedCategory, onCategoryChange }) => (
       value={selectedCategory}
       onChange={onCategoryChange}
     >
-      <option value="">Select Products</option>
-      <option value="10">Classic Eyeglasses</option>
-      <option value="11">Premium Eyeglasses</option>
-      <option value="12">Screen Eyeglasses</option>
+      <option value="">Classic Eyeglasses</option>
+      <option value="classic">Classic Eyeglasses</option>
+      <option value="premium">Premium Eye Glasses</option>
+      <option value="screen">Screen Eye Glasses</option>
+    </select>
+
+    <select
+      style={{ color: "black" }}
+      className="category-select"
+      value={selectedCategory}
+      onChange={onCategoryChange}
+    >
+      <option value="">Premium Eye Glasses</option>
+      <option value="classic">Classic Eyeglasses</option>
+      <option value="premium">Premium Eye Glasses</option>
+      <option value="screen">Screen Eye Glasses</option>
+    </select>
+    <select
+      style={{ color: "black" }}
+      className="category-select"
+      value={selectedCategory}
+      onChange={onCategoryChange}
+    >
+      <option value="">Screen Eye Glasses</option>
+      <option value="classic">Classic Eyeglasses</option>
+      <option value="premium">Premium Eye Glasses</option>
+      <option value="screen">Screen Eye Glasses</option>
     </select>
   </div>
 );
 
-export default Allproduct;
+const ProductCard = ({
+  image,
+  title,
+  originalPrice,
+  discountedPrice,
+  discount,
+}) => (
+  <div className="product-card">
+    {discount > 0 && <div className="discount-badge">{discount}%</div>}
+    <img src={image} alt={title} className="product-image" />
+
+   <div
+    style={{
+      padding: "20px 10px 20px 10px",
+    }}>
+   <h6 className="product-title">{title}</h6>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0px 10px 10px 10px",
+      }}
+    >
+      <div
+        className="product-pricing"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        {originalPrice !== discountedPrice && (
+          <span className="original-price">₹{originalPrice.toFixed(2)}</span>
+        )}
+        <span className="discounted-price">₹{discountedPrice.toFixed(2)}</span>
+      </div>
+      <div className="product-actions">
+        {/* <button className="quantity-btn">-</button>
+      <span>1</span>
+      <button className="quantity-btn">+</button> */}
+        <button className="cart-btn">
+          <svg
+            style={{ height: "15px" }}
+            class="h-4 w-4 ltr:mr-2.5 rtl:ml-2.5"
+            viewBox="0 0 14.4 12"
+          >
+            <g transform="translate(-288 -413.89)">
+              <path
+                fill="currentColor"
+                d="M298.7,418.289l-2.906-4.148a.835.835,0,0,0-.528-.251.607.607,0,0,0-.529.251l-2.905,4.148h-3.17a.609.609,0,0,0-.661.625v.191l1.651,5.84a1.336,1.336,0,0,0,1.255.945h8.588a1.261,1.261,0,0,0,1.254-.945l1.651-5.84v-.191a.609.609,0,0,0-.661-.625Zm-5.419,0,1.984-2.767,1.98,2.767Zm1.984,5.024a1.258,1.258,0,1,1,1.319-1.258,1.3,1.3,0,0,1-1.319,1.258Zm0,0"
+              ></path>
+            </g>
+          </svg>
+          Cart
+        </button>
+      </div>
+    </div>
+   </div>
+  </div>
+);
+
+export default ClassicProduct;

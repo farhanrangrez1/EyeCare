@@ -10,6 +10,7 @@ import Profile from './page/Profile';
 import ChangePassword from './page/ChangePassword';
 import { ToastContainer,Bounce,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer2 from './component/Footer2';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
     <Route path='/changepassword' element={<ChangePassword/>}/>
     </Routes>
    </Router>
+   <Footer2></Footer2>
     </>
   );
 }
