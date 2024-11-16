@@ -222,7 +222,7 @@ const ProductCard = ({
                 ></path>
               </g>
             </svg>
-            Cart
+            Cart1
           </button>
         </div>
       </div>
