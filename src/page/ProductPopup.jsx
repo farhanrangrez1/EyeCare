@@ -2,8 +2,11 @@ import { useState } from "react";
 import "../assets/produtpopup.css";
 import { RxCross2 } from "react-icons/rx";
 // import { useSelector } from "react-redux";
+import { CiStar } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 
-const ProductPopup = ({handleClosePopup}) => {
+
+const ProductPopup = ({ handleClosePopup }) => {
     // { handleBackModal, mdetales }
 
     const [count, setCount] = useState(1);
@@ -31,7 +34,7 @@ const ProductPopup = ({handleClosePopup}) => {
 
     return (
         <>
-            <div className="modal-1"></div>
+            <div onClick={handleClosePopup} className="modal-1"></div>
             <div className="modal-2">
                 <div onClick={handleClosePopup} className="modal-cros-20"><RxCross2 /></div>
                 <div className="modal-3">
@@ -39,19 +42,25 @@ const ProductPopup = ({handleClosePopup}) => {
                 </div>
                 <div className="modal-4">
                     <h2>Gradient Grey Wayfarer Sunglasses - MG3631</h2>
-                    <p>2Pfund</p>
-                    <span>Frame Colour: Silver Feature: UV Protected Ideal For: Men & Women Lens Colour: Black Lens Material: CR39 Frame Material: Metal Temple Material: Me</span>
-                    <span>see more</span>
-                    <h4><span>Rs:7686</span> <strike className="modal-strike">Rs:5.00</strike></h4>
+                    <p className="modal4-p-span"><CiStar /><CiStar /><CiStar /><CiStar /><CiStar />
+                        <span> 0 Review</span>|<span>0 order</span>|<span>0 WishList</span>
+                    </p>
+                    <span style={{ color: "red" }} className="m4-span-strike">33.30 RS <strike>45 Rs</strike></span>
+                    <h4><span>Discount Price:2.0Rs</span> <strike className="modal-strike">Rs:5.00</strike></h4>
+                    <div className="m-4-quanty">
+                        <span>Quantity:</span>
+                        <span style={{cursor:"pointer",fontSize:"25px"}} >+</span>
+                        <button style={{fontSize:"20px"}}>1</button>
+                        <span  style={{cursor:"pointer",fontSize:"25px"}} >-</span>
+                    </div>
+                    <p className="m-4-totalprice">Total Price: 33.0 RS</p>
 
-                    {
-                        changeBtn ? (<p><div className="modal-btn-2" ><button onClick={handleIncres2}>+</button><span>{count}</span><button onClick={handleDecres2}>-</button></div></p>)
-
-                            :
-                            (<p onClick={handleChangeBtn}><button>Add Shopping Cart</button></p>)
-
-                    }
-
+                    <div className="modal-4-btn-2-3">
+                        <button className="m-4-btn-1">3D TRY ON</button>
+                        <button className="m-4-btn-2">Add to Cart</button>
+                      <span style={{color:"red"}} className="m-4-h-1"><FaHeart/></span>
+                      <span style={{color:"red"}}>0</span>
+                    </div>
                 </div>
             </div>
         </>

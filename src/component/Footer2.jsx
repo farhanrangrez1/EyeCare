@@ -3,16 +3,15 @@ import React from 'react';
 import logo from "../Image/logo.webp"
 import "../assets/footer2.css"
 import { IoMdSend } from "react-icons/io";
+import newlogo from "../Image/logo.webp";
 
 const Footer2 = () => {
   return (
     <footer className="footer">
+
+      <div className='footer2-logo'><img src={newlogo}></img></div>
       <div className="footer-container">
         <div className="footer-content">
-          <div className="footer-logo">
-          <h2>EyeCare
-          </h2>
-          </div>
           <div className="footer-links">
             <div className='footer-1'>
             <a  href="#home">Explore</a>
