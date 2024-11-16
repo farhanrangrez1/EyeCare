@@ -79,6 +79,8 @@
 }
 .modal-4-btn-2-3{
    display: flex;
+   justify-content: center;
+   align-items: center;
  
 }
 .m-4-btn-2{
