@@ -131,6 +131,9 @@ const Navbar = () => {
   const handleButtonClick = async () => {
     await Swal.fire(swalOptions);
   };
+  const handleCartModal=()=>{
+    navigate("/checkorder")
+  }
   const handleLogin = () => {
     const email = document.getElementById("swal-input-email").value;
     const password = document.getElementById("swal-input-password").value;
@@ -222,9 +225,6 @@ const Navbar = () => {
     setShowModal(false);
   };
 
-  const handleCartModal = () => {
-    setShowModal(true);
-  };
 
   const handleGoLogoFromHome = () => {
     navigate("/");

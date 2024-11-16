@@ -13,6 +13,7 @@ import { ToastContainer,Bounce,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer2 from './component/Footer2';
 import Offer from './page/Offer';
+import CheckOrder from './page/CheckOrder';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
     <Route path='/profile'element={<><Profile/> <Footer2/></>}/>
     <Route path='/changepassword' element={<><ChangePassword/> <Footer2/></>}/>
     <Route path='/offer' element={<><Offer/> <Footer2/></>}/>
+   <Route path="/checkorder" element={<CheckOrder/>}/>
     </Routes>
    
    </Router>

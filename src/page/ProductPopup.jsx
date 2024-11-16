@@ -4,14 +4,19 @@ import { RxCross2 } from "react-icons/rx";
 // import { useSelector } from "react-redux";
 import { CiStar } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 const ProductPopup = ({ handleClosePopup }) => {
     // { handleBackModal, mdetales }
 
+    const navigate = useNavigate()
     const [count, setCount] = useState(1);
     const [changeBtn, setChangeBtn] = useState(false)
 
+    // const handleCheckOut=()=>{
+    //     navigate("/checkorder")
+    // }
     const price = 4.00;
 
     const handleIncres2 = () => {
@@ -57,7 +62,7 @@ const ProductPopup = ({ handleClosePopup }) => {
 
                     <div className="modal-4-btn-2-3">
                         <button className="m-4-btn-1">3D TRY ON</button>
-                        <button className="m-4-btn-2">Add to Cart</button>
+                        <button  className="m-4-btn-2">Add to Cart</button>
                       <span style={{color:"red"}} className="m-4-h-1"><FaHeart/></span>
                       <span style={{color:"red"}}>0</span>
                     </div>
