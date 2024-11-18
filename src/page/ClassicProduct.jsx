@@ -210,7 +210,7 @@ const ProductCard = ({
           <span className="discounted-price">₹{discountedPrice.toFixed(2)}</span>
         </div>
         <div className="product-actions">
-          <button className="cart-btn">
+          <button  onClick={handlePopupProduct} className="cart-btn">
             <svg
               style={{ height: "15px" }}
               viewBox="0 0 14.4 12"

@@ -5,6 +5,8 @@ import { RxCross2 } from "react-icons/rx";
 import { CiStar } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { FaRegStarHalfStroke } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa";
 
 
 const ProductPopup = ({ handleClosePopup }) => {
@@ -47,16 +49,16 @@ const ProductPopup = ({ handleClosePopup }) => {
                 </div>
                 <div className="modal-4">
                     <h2>Gradient Grey Wayfarer Sunglasses - MG3631</h2>
-                    <p className="modal4-p-span"><CiStar /><CiStar /><CiStar /><CiStar /><CiStar />
-                        <span> 0 Review</span>|<span>0 order</span>|<span>0 WishList</span>
+                <p className="modal4-p-span" style={{fontSize:"20px"}}><FaStar /><FaStar /><FaStar /><FaRegStarHalfStroke /><CiStar />
+                        <span style={{color:"black",fontSize:"17px"}}>4.6 Review</span>|<span style={{color:"black",fontSize:"17px"}}>0 order</span>|<span style={{color:"black",fontSize:"17px"}}>0 WishList</span>
                     </p>
-                    <span style={{ color: "red" }} className="m4-span-strike">33.30 RS <strike>45 Rs</strike></span>
+                    <span className="m4-span-strike">33.30 RS <strike style={{ color: "red" }}>45 Rs</strike></span>
                     <h4><span>Discount Price:2.0Rs</span> <strike className="modal-strike">Rs:5.00</strike></h4>
                     <div className="m-4-quanty">
                         <span>Quantity:</span>
-                        <span onClick={handleIncressCard} style={{cursor:"pointer",fontSize:"25px"}} >+</span>
+                        <button onClick={handleIncressCard} style={{cursor:"pointer",fontSize:"25px",border:"none",backgroundColor:"white"}} >+</button>
                         <button style={{fontSize:"20px"}}>{counter}</button>
-                        <span onClick={handleDecresscard}  style={{cursor:"pointer",fontSize:"25px"}} >-</span>
+                        <button onClick={handleDecresscard}  style={{cursor:"pointer",fontSize:"25px",border:"none",backgroundColor:"white"}} >-</button>
                     </div>
                     <p className="m-4-totalprice">Total Price: 33.0 RS</p>
 
