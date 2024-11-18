@@ -56,9 +56,9 @@ const ProductPopup = ({ handleClosePopup }) => {
                     <h4><span>Discount Price:2.0Rs</span> <strike className="modal-strike">Rs:5.00</strike></h4>
                     <div className="m-4-quanty">
                         <span>Quantity:</span>
-                        <button onClick={handleIncressCard} style={{cursor:"pointer",fontSize:"25px",border:"none",backgroundColor:"white"}} >+</button>
-                        <button style={{fontSize:"20px"}}>{counter}</button>
                         <button onClick={handleDecresscard}  style={{cursor:"pointer",fontSize:"25px",border:"none",backgroundColor:"white"}} >-</button>
+                        <button style={{fontSize:"20px"}}>{counter}</button>
+                        <button onClick={handleIncressCard} style={{cursor:"pointer",fontSize:"25px",border:"none",backgroundColor:"white"}} >+</button>
                     </div>
                     <p className="m-4-totalprice">Total Price: 33.0 RS</p>
 
