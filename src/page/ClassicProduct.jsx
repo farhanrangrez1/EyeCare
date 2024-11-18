@@ -72,6 +72,68 @@ const allProducts = [
     discount: 40,
     category: "screen",
   },
+  {
+    image: product1,
+    title: "The OG | Round Black Silver Su...",
+    originalPrice: 2.0,
+    discountedPrice: 1.6,
+    discount: 20,
+    category: "classic",
+  },
+  {
+    image: product2,
+    title: "Gradient Grey Wayfarer Sungla...",
+    originalPrice: 1.0,
+    discountedPrice: 0.6,
+    discount: 40,
+    category: "classic",
+  },
+  {
+    image: product3,
+    title: "Phantom | Black Wayfarer Sung...",
+    originalPrice: 3.0,
+    discountedPrice: 3.0,
+    discount: 0,
+    category: "premium",
+  },
+  {
+    image: product4,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    discount: 40,
+    category: "screen",
+  },
+  {
+    image: product5,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    category: "screen",
+  },
+  {
+    image: product6,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    discount: 40,
+    category: "screen",
+  },
+  {
+    image: product14,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    category: "screen",
+  },
+  {
+    image: product8,
+    title: "Silver Digger | Black & Silver Re...",
+    originalPrice: 5.0,
+    discountedPrice: 3.0,
+    discount: 40,
+    category: "screen",
+  },
 ];
 
 function ClassicProduct() {
@@ -210,7 +272,7 @@ const ProductCard = ({
           <span className="discounted-price">₹{discountedPrice.toFixed(2)}</span>
         </div>
         <div className="product-actions">
-          <button  onClick={handlePopupProduct} className="cart-btn">
+          <button  className="cart-btn">
             <svg
               style={{ height: "15px" }}
               viewBox="0 0 14.4 12"

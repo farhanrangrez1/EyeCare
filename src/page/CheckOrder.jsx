@@ -56,7 +56,7 @@ console.log(value)
                         <del className="text-secondary">₹12,533.00</del>
                       </p>
                     </td>
-                    <td style={{ width: "100px" }}>
+                    <td >
                       <input
                         type="number"
                         value={number}
@@ -89,7 +89,7 @@ console.log(value)
                         <del className="text-secondary">₹12,533.00</del>
                       </p>
                     </td>
-                    <td style={{ width: "100px" }}>
+                    <td>
                       <input
                         type="number"
                         value={number}
@@ -122,7 +122,7 @@ console.log(value)
                         <del className="text-secondary">₹12,533.00</del>
                       </p>
                     </td>
-                    <td style={{ width: "100px" }}>
+                    <td >
                       <input
                         type="number"
                         value={number}
@@ -155,7 +155,9 @@ console.log(value)
                         <del className="text-secondary">₹12,533.00</del>
                       </p>
                     </td>
-                    <td style={{ width: "100px" }}>
+                    <td
+                    
+                    >
                       <input
                         type="number"
                         value={number}
@@ -180,7 +182,7 @@ console.log(value)
               name="company"
               id="cars"
               className="w-100 p-2 rounded-1 border border-1 shadow-sm"
-              style={{ outline: "none" }}
+            
             >
               <option value="company">
                 Company Vehicle ( 2 Week ) &#8377;0.00
@@ -196,7 +198,7 @@ console.log(value)
               name="note"
               id=""
               className="w-100 p-2 d-block border border-1 rounded-1 shadow-sm"
-              style={{ outline: "none" }}
+             
             ></textarea>
           </div>
           <div className="d-flex justify-content-between">
@@ -236,7 +238,7 @@ console.log(value)
               type="text"
               placeholder="Coupon code"
               className="w-100 p-2 rounded-1 border border-1 shadow-sm"
-              style={{ outline: "none" }}
+         
             />
             <button className="btn btn-primary w-100 mt-2">Apply code</button>
           </div>
