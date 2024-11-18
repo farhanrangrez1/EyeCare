@@ -1,71 +1,18 @@
-.table-responsive {
-  margin: 20px 0;
-  max-height: 210px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.tab-img {
-    width: 50px;
-    height: auto;
-  border-radius: 5%;
-  margin-right: 10px;
-}
-
-.cancel-btn {
-  color: red;
-}
-
-.summary-card {
-  max-width: 385px;
-  margin-left: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.summary-card input[type="checkbox"] {
-  margin-right: 8px;
-}
-
-.summary-card input.form-control {
-  border-radius: 4px;
-}
-
-.summary-card button.btn {
-  width: 100%;
-  border-radius: 4px;
-}
-
-@media screen and (max-width: 768px) {
-  .summary-card {
-    margin-top: 20px;
-    display: grid;
-    max-width: 100%;
+.scrollable-table {
+    height: 200px;
+    overflow-y: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
   }
-}
 
-.company-dropdown {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  border-radius: 2px;
-}
+  td, th{
+    font-size: 15px;
+  }
+  
+  .table td {
+    vertical-align: middle; 
+  }
 
-.textarea {
-  display: block;
-  width: 100%;
-  height: 60px;
-}
-
-.button-flex {
-  display: flex;
-  justify-content: space-between;
-}
-
-.button-color {
-  background-color: #007bff;
-  color: white;
-  padding:12px 18px;
-}
+  .icons-bottom{
+    font-size:small;
+  }
