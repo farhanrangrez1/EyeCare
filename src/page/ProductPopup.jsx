@@ -17,21 +17,21 @@ const ProductPopup = ({ handleClosePopup }) => {
     // const handleCheckOut=()=>{
     //     navigate("/checkorder")
     // }
-    const price = 4.00;
-
-    const handleIncres2 = () => {
-        setCount(count + 1)
-    }
-    const handleDecres2 = () => {
-        setCount(count - 1)
-        if (count === 1) {
-            setChangeBtn(false)
-            setCount(count)
-        }
-    }
+   
     //     const h=()=>{
     // setCount(count+1)
     //     }
+    const [counter , setCounter] = useState(1)
+    const handleIncressCard=()=>{
+        setCounter(counter+1)
+    }
+    const handleDecresscard=()=>{
+        setCounter(counter-1)
+        if(counter===1){
+            setCounter(1)
+        }
+    }
+
 
     const handleChangeBtn = () => {
         setChangeBtn(true)
@@ -54,9 +54,9 @@ const ProductPopup = ({ handleClosePopup }) => {
                     <h4><span>Discount Price:2.0Rs</span> <strike className="modal-strike">Rs:5.00</strike></h4>
                     <div className="m-4-quanty">
                         <span>Quantity:</span>
-                        <span style={{cursor:"pointer",fontSize:"25px"}} >+</span>
-                        <button style={{fontSize:"20px"}}>1</button>
-                        <span  style={{cursor:"pointer",fontSize:"25px"}} >-</span>
+                        <span onClick={handleIncressCard} style={{cursor:"pointer",fontSize:"25px"}} >+</span>
+                        <button style={{fontSize:"20px"}}>{counter}</button>
+                        <span onClick={handleDecresscard}  style={{cursor:"pointer",fontSize:"25px"}} >-</span>
                     </div>
                     <p className="m-4-totalprice">Total Price: 33.0 RS</p>
 
